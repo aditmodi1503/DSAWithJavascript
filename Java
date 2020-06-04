@@ -1,0 +1,1415 @@
+1. OOPS concepts in Java:
+    i) Polymorphism: refers to the ability of the OOPs programming language to differentiate between the functions of same name
+        Eg: // This class will contain 
+            // 3 methods with same name, 
+            // yet the program will 
+            // compile & run successfully 
+            public class Sum { 
+            
+                // Overloaded sum(). 
+                // This sum takes two int parameters 
+                public int sum(int x, int y) 
+                { 
+                    return (x + y); 
+                } 
+            
+                // Overloaded sum(). 
+                // This sum takes three int parameters 
+                public int sum(int x, int y, int z) 
+                { 
+                    return (x + y + z); 
+                } 
+            
+                // Overloaded sum(). 
+                // This sum takes two double parameters 
+                public double sum(double x, double y) 
+                { 
+                    return (x + y); 
+                } 
+            
+                // Driver code 
+                public static void main(String args[]) 
+                { 
+                    Sum s = new Sum(); 
+                    System.out.println(s.sum(10, 20));          //30
+                    System.out.println(s.sum(10, 20, 30));      //60
+                    System.out.println(s.sum(10.5, 20.5));      //31.0
+                } 
+            }
+
+        Mainly it has 2 methods: Overloading and overriding
+            Overloading allows different functions to have same name with different parameters (number or type or both).
+            Overriding allows the function of the same name in child class to override the method with the same name in parent class. If there is child class which has a function with same name, parameters & retun type then the function in child class override the method from its super class.
+                Eg: // A Simple Java program to demonstrate 
+                    // method overriding in java 
+                    
+                    // Base Class 
+                    class Parent { 
+                        void show() 
+                        { 
+                            System.out.println("Parent's show()"); 
+                        } 
+                    } 
+                    
+                    // Inherited class 
+                    class Child extends Parent { 
+                        // This method overrides show() of Parent 
+                        @Override
+                        void show() 
+                        { 
+                            System.out.println("Child's show()"); 
+                        } 
+                    } 
+                    
+                    // Driver class 
+                    class Main { 
+                        public static void main(String[] args) 
+                        { 
+                            // If a Parent type reference refers 
+                            // to a Parent object, then Parent's 
+                            // show is called 
+                            Parent obj1 = new Parent(); 
+                            obj1.show(); 
+                    
+                            // If a Parent type reference refers 
+                            // to a Child object Child's show() 
+                            // is called. This is called RUN TIME 
+                            // POLYMORPHISM. 
+                            Parent obj2 = new Child(); 
+                            obj2.show(); 
+                        } 
+                    } 
+
+    ii) Inheritance:
+        It is the mechanism in java by which one class is allow to inherit the features(fields and methods) of another class.
+        Important terminology:
+        Super Class: The class whose features are inherited is known as superclass(or a base class or a parent class).
+        Sub Class: The class that inherits the other class is known as subclass(or a derived class, extended class, or child class). The subclass can add its own fields and methods in addition to the superclass fields and methods.
+        Reusability: Inheritance supports the concept of “reusability”, i.e. when we want to create a new class and there is already a class that includes some of the code that we want, we can derive our new class from the existing class. By doing this, we are reusing the fields and methods of the existing class.
+        The keyword used for inheritance is extends.
+        Syntax:
+
+        class derived-class extends base-class  
+        {  
+            //methods and fields  
+        }  
+
+    iii) Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together code and the data it manipulates. Another way to think about encapsulation is, it is a protective shield that prevents the data from being accessed by the code outside this shield:
+        i) Technically in encapsulation, the variables or data of a class is hidden from any other class and can be accessed only through any member function of own class in which they are declared.
+        ii) As in encapsulation, the data in a class is hidden from other classes, so it is also known as data-hiding.
+        iii) Encapsulation can be achieved by Declaring all the variables in the class as private and writing public methods in the class to set and get the values of variables.
+
+        Eg: //save as Student.java
+            package com.javatpoint;
+            public class Student {
+                private String name;
+                public String getName() {
+                    return name;
+                }
+                public void setName(String name) {
+                    this.name = name
+                }
+            }
+            //save as Test.java
+            package com.javatpoint;
+            class Test {
+                public static void main(String[] args) {
+                    Student s = new Student();
+                    s.setName(“vijay”);
+                    System.out.println(s.getName());
+                }
+            }
+            //Output:
+            vijay
+
+    iv) Abstraction: Data Abstraction is the property by virtue of which only the essential details are displayed to the user.The trivial or the non-essentials units are not displayed to the user. Ex: A car is viewed as a car rather than its individual components.
+    
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+1. Why Java?
+    i) Object oriented: Java can easily be extended since it is based on an Object module.
+    ii) Platform independent: Java run on various machines with the help of JVM(Java virtual machines).
+    iii) Secure: Java has a secure feature with which applications can be developed virus free.
+    iv) Portable: Java is architecture neutral and hence portable throughout the web.
+    v) Multithreaded: With javas multithreading functionality developers can smoothly develop applications to perform smoothly.
+
+2. Hello world:
+    public class HelloWorld{
+        public static void main(String args[]){
+            System.out.println('Hello world');
+        }
+    }
+
+3. Difference between java & javac:
+    javac takes .java file as input and produces bytecode. java executes the bytecode and runs the program.
+
+4. Basically the following 4 things are used in Java: Object, Class, Method, Instance variables
+    i) Object: It contains the state & behaviour. Eg - dogs has states like barking, sleeping etc.
+    ii) Class: It is the blueprint that defines the state/behaviour of the object that supports its type.
+    iii) Method: It is a behaviour. A class can have many methods that has logic in it that how the code should be operated.
+    iv) Instance variables: each object has a unique set whose value is set for the object to have behaviour.
+
+5. Some important points to be kept in mind:
+    i) Java is case sensitive
+    ii) First letter of class should be capital. Also if the class name is combination of words then first letter of each word should be made capital.
+    iii) Method names are camel cased
+    iv) Program file name should be exactly same as the class name
+    v) public static void main(String args[]): program starts with main always.
+    vi) Name used for classes, variables & methods are called identifiers
+
+6. All identifiers should begin with a letter (A to Z or a to z), currency character ($) or an underscore (_). A key word cannot be used as an identifier. Most importantly, identifiers are case sensitive.
+    Examples of legal identifiers: age, $salary, _value, __1_value.
+
+7. Java modifiers:
+    Access Modifiers − default(Visible to the package), public(Visible to the world) , private(Visible to the class only), protected(Visible to the package and all subclasses).
+    Non-access Modifiers − final modifier(for finalizing the implementation of class, methods etc), abstract modifier(to create abstract clsses and methods), static modifier(to create class methods & variables)
+
+8. Java Variables: Following are the types of variables in Java −
+    Local Variables: Created in a block, method or constructor. Scope is finished when either ends. Access modifiers cannot be used to access them. Local variables are implemented at stack level. These variables do not have any default values.
+        Eg 1: public class Test {
+                public void pupAge() {
+                    int age = 0;
+                    age = age + 7;
+                    System.out.println("Puppy age is : " + age);
+                }
+
+                public static void main(String args[]) {
+                    Test test = new Test();
+                    test.pupAge();
+                }
+            }
+            //Output: Puppy age is: 7
+
+        Eg 2:   public class Test {
+                    public void pupAge() {
+                        int age;
+                        age = age + 7;
+                        System.out.println("Puppy age is : " + age);
+                    }
+
+                    public static void main(String args[]) {
+                        Test test = new Test();
+                        test.pupAge();
+                    }
+                }
+            //Output:   Test.java:4:variable number might not have been initialized
+                        age = age + 7;
+                                ^
+                        1 error
+
+    Instance Variables (Non-static Variables): These are declared in class but outside the method, constructor etc. These can be used by access modifiers and accordingly can be made available. They are visible for all the methods or constructors present inside the same class. These variables have default values.
+        Eg: import java.io.*;
+            public class Employee {
+                // this instance variable is visible for any child class.
+                public String name;
+
+                // salary  variable is visible in Employee class only.
+                private double salary;
+
+                // The name variable is assigned in the constructor.
+                public Employee (String empName) {
+                    name = empName;
+                }
+
+                // The salary variable is assigned a value.
+                public void setSalary(double empSal) {
+                    salary = empSal;
+                }
+
+                // This method prints the employee details.
+                public void printEmp() {
+                    System.out.println("name  : " + name );
+                    System.out.println("salary :" + salary);
+                }
+
+                public static void main(String args[]) {
+                    Employee empOne = new Employee("Ransika");
+                    empOne.setSalary(1000);
+                    empOne.printEmp();
+                }
+            }
+
+            //Output:   name  : Ransika
+                        salary :1000.0
+        
+    Class Variables (Static Variables): Static keyword is used to declare any variable static. It allocates memory to object only once. Its life is till the program ends.
+        Eg: If in a class suppose there is a static variable as static String college = 'ITS'. We can change this in main() by directly referencing to class as ClassName.college = 'DTU'. So in case if it had not been declared as static then each time the object for the class was created the memory for variable college had been assigned.
+
+9. Enums allow to restrict a variable with predefined values so that no other value can be chosen outside it.
+    Eg: class FreshJuice {
+            enum FreshJuiceSize{ SMALL, MEDIUM, LARGE }
+            FreshJuiceSize size;
+        }
+
+        public class FreshJuiceTest {
+
+            public static void main(String args[]) {
+            FreshJuice juice = new FreshJuice();
+            juice.size = FreshJuice.FreshJuiceSize.MEDIUM ;
+            System.out.println("Size: " + juice.size);
+            }
+        }
+    //Output: Size: MEDIUM
+
+10. Java keywords:
+    abstract, assert, boolean, break, byte, case, catch, char, class, const, continue, default, do, double, else, enum, extends, final, finally, float, for, goto, if, implements, import, instanceof, int, interface, long, native, new, package, private, protected, public, return, short, static, strictfp, super, switch, synchronized, this, throw, throws, transient, try, void, volatile, while
+
+11. Interfaces: An interface defines the methods, a deriving class (subclass) should use. But the implementation of the methods is totally up to the subclass.
+
+12. Java supports the following fundamentals:
+    Polymorphism
+    Inheritance
+    Encapsulation
+    Abstraction
+    Classes
+    Objects
+    Instance
+    Method
+    Message Passing
+
+13. A class can contain any of the following variable types.
+
+    Local variables − Variables defined inside methods, constructors or blocks are called local variables. The variable will be declared and initialized within the method and the variable will be destroyed when the method has completed.
+    Instance variables − Instance variables are variables within a class but outside any method. These variables are initialized when the class is instantiated. Instance variables can be accessed from inside any method, constructor or blocks of that particular class.
+    Class variables − Class variables are variables declared within a class, outside any method, with the static keyword.
+
+14. Constructor: When discussing about classes, one of the most important sub topic would be constructors. Every class has a constructor. If we do not explicitly write a constructor for a class, the Java compiler builds a default constructor for that class. Each time a new object is created, at least one constructor will be invoked. The main rule of constructors is that they should have the same name as the class. A class can have more than one constructor.
+    Eg: public class Puppy {
+            public Puppy() {
+            }
+
+            public Puppy(String name) {
+                // This constructor has one parameter, name.
+            }
+        }
+
+    i) Default constructors: If we dont define a constructor, the class initializes its default constructor.
+    ii) No argument constructor:
+        Eg: public class MyClass {
+                Int num;
+                MyClass() {
+                    num = 100;
+                }
+            }
+            public class ConsDemo {
+                public static void main(String args[]) {
+                    MyClass t1 = new MyClass();
+                    MyClass t2 = new MyClass();
+                    System.out.println(t1.num + " " + t2.num);
+                }
+            }
+    iii) Paramterized constructor:
+        Eg: // A simple constructor.
+            class MyClass {
+                int x;
+                
+                // Following is the constructor
+                MyClass(int i ) {
+                    x = i;
+                }
+            }
+
+            public class ConsDemo {
+                public static void main(String args[]) {
+                    MyClass t1 = new MyClass( 10 );
+                    MyClass t2 = new MyClass( 20 );
+                    System.out.println(t1.x + " " + t2.x);
+                }
+            }
+
+15. How to use singleton class? : The Singleton's purpose is to control object creation, limiting the number of objects to only one. Since there is only one Singleton instance, any instance fields of a Singleton will occur only once per class, just like static fields. Singletons often control access to resources, such as database connections or sockets.
+    For example, if you have a license for only one connection for your database or your JDBC driver has trouble with multithreading, the Singleton makes sure that only one connection is made or that only one thread can access the connection at a time.
+
+        Eg 1: The easiest implementation consists of a private constructor and a field to hold its result, and a static accessor method with a name like getInstance(). The private field can be assigned from within a static initializer block or, more simply, using an initializer. The getInstance( ) method (which must be public) then simply returns this instance −
+
+            // File Name: Singleton.java
+            public class Singleton {
+
+                private static Singleton singleton = new Singleton( );
+
+                // A private Constructor prevents any other class from instantiating.
+                private Singleton() { }
+
+                /* Static 'instance' method */
+                public static Singleton getInstance( ) {
+                    return singleton;
+                }
+
+                /* Other methods protected by singleton-ness */
+                protected static void demoMethod( ) {
+                    System.out.println("demoMethod for singleton");
+                }
+            }
+
+            Here is the main program file where we will create a singleton object −
+
+            // File Name: SingletonDemo.java
+            public class SingletonDemo {
+
+                public static void main(String[] args) {
+                    Singleton tmp = Singleton.getInstance( );
+                    tmp.demoMethod( );
+                }
+            }
+
+            This will produce the following result −
+
+            Output
+            demoMethod for singleton
+
+        Eg 2: Following implementation shows a classic Singleton design pattern −
+
+            public class ClassicSingleton {
+                private static ClassicSingleton instance = null;
+                private ClassicSingleton() {
+                    // Exists only to defeat instantiation.
+                }
+
+                public static ClassicSingleton getInstance() {
+                    if(instance == null) {
+                        instance = new ClassicSingleton();
+                    }
+                    return instance;
+                }
+            }
+
+        The ClassicSingleton class maintains a static reference to the lone singleton instance and returns that reference from the static getInstance() method. Here, ClassicSingleton class employs a technique known as lazy instantiation to create the singleton; as a result, the singleton instance is not created until the getInstance() method is called for the first time. This technique ensures that singleton instances are created only when needed.
+
+16. Creating an object: There are three steps when creating an object from a class −
+        Declaration − A variable declaration with a variable name with an object type.
+        Instantiation − The 'new' keyword is used to create the object.
+        Initialization − The 'new' keyword is followed by a call to a constructor. This call initializes the new object.
+
+        Eg: public class Puppy {
+                public Puppy(String name) {
+                    // This constructor has one parameter, name.
+                    System.out.println("Passed Name is :" + name );
+                }
+
+                public static void main(String []args) {
+                    // Following statement would create an object myPuppy
+                    Puppy myPuppy = new Puppy( "tommy" );
+                }
+            }
+
+            //Output: Passed Name is :tommy
+
+17. Accessing instance variables and methods:
+    /* First create an object */
+    ObjectReference = new Constructor();
+
+    /* Now call a variable as follows */
+    ObjectReference.variableName;
+
+    /* Now you can call a class method as follows */
+    ObjectReference.MethodName();
+
+    Eg: public class Puppy {
+            int puppyAge;
+
+            public Puppy(String name) {
+                // This constructor has one parameter, name.
+                System.out.println("Name chosen is :" + name );
+            }
+
+            public void setAge( int age ) {
+                puppyAge = age;
+            }
+
+            public int getAge( ) {
+                System.out.println("Puppy's age is :" + puppyAge );
+                return puppyAge;
+            }
+
+            public static void main(String []args) {
+                /* Object creation */
+                Puppy myPuppy = new Puppy( "tommy" );
+
+                /* Call class method to set puppy's age */
+                myPuppy.setAge( 2 );
+
+                /* Call another class method to get puppy's age */
+                myPuppy.getAge( );
+
+                /* You can access instance variable as follows as well */
+                System.out.println("Variable Value :" + myPuppy.puppyAge );
+            }
+        }
+
+        //Output:   Name chosen is :tommy
+                    Puppy's age is :2
+                    Variable Value :2
+
+18. Source file declaration rules:
+    i) There can be only one public class per source file and many non-public classes. The file name will be same as the public class name with .java at the end.
+    ii) If there is any package being used then it should be the first line in the source file.
+    iii) If there is any import then it should be written between package and class.
+
+19. Java package: It is a simple way of categorizing classes and interfaces.
+
+20. Import statements: the following line would ask the compiler to load all the classes available in directory java_installation/java/io −
+        import java.io.*;
+
+21. Example:
+    import java.io.*;
+    public class Employee {
+
+        String name;
+        int age;
+        String designation;
+        double salary;
+
+        // This is the constructor of the class Employee
+        public Employee(String name) {
+            this.name = name;
+        }
+
+        // Assign the age of the Employee  to the variable age.
+        public void empAge(int empAge) {
+            age = empAge;
+        }
+
+        /* Assign the designation to the variable designation.*/
+        public void empDesignation(String empDesig) {
+            designation = empDesig;
+        }
+
+        /* Assign the salary to the variable	salary.*/
+        public void empSalary(double empSalary) {
+            salary = empSalary;
+        }
+
+        /* Print the Employee details */
+        public void printEmployee() {
+            System.out.println("Name:"+ name );
+            System.out.println("Age:" + age );
+            System.out.println("Designation:" + designation );
+            System.out.println("Salary:" + salary);
+        }
+    }
+
+    Following is the EmployeeTest class, which creates two instances of the class Employee and invokes the methods for each object to assign values for each variable.
+
+    import java.io.*;
+    public class EmployeeTest {
+
+        public static void main(String args[]) {
+            /* Create two objects using constructor */
+            Employee empOne = new Employee("James Smith");
+            Employee empTwo = new Employee("Mary Anne");
+
+            // Invoking methods for each object created
+            empOne.empAge(26);
+            empOne.empDesignation("Senior Software Engineer");
+            empOne.empSalary(1000);
+            empOne.printEmployee();
+
+            empTwo.empAge(21);
+            empTwo.empDesignation("Software Engineer");
+            empTwo.empSalary(500);
+            empTwo.printEmployee();
+        }
+    }
+
+    //Output:
+    C:\> javac Employee.java
+    C:\> javac EmployeeTest.java
+    C:\> java EmployeeTest
+    Name:James Smith
+    Age:26
+    Designation:Senior Software Engineer
+    Salary:1000.0
+    Name:Mary Anne
+    Age:21
+    Designation:Software Engineer
+    Salary:500.0
+
+22. Data types: Primitive data types, Reference/Object data types
+        Primitive data types: There are 8 primitive data types in Java.
+            byte:
+                Byte data type is an 8-bit signed two's complement integer
+                Minimum value is -128 (-2^7) or (-2^(8-1)-1)
+                Maximum value is 127 (inclusive)(2^7 -1) or (2^(8-1)-1)
+                Default value is 0
+                Byte data type is used to save space in large arrays, mainly in place of integers, since a byte is four times smaller than an integer.
+                Example: byte a = 100, byte b = -50
+
+            short
+                Short data type is a 16-bit signed two's complement integer
+                Minimum value is -32,768 (-2^15)
+                Maximum value is 32,767 (inclusive) (2^15 -1)
+                Short data type can also be used to save memory as byte data type. A short is 2 times smaller than an integer
+                Default value is 0.
+                Example: short s = 10000, short r = -20000
+
+            int
+                Int data type is a 32-bit signed two's complement integer.
+                Minimum value is - 2,147,483,648 (-2^31)
+                Maximum value is 2,147,483,647(inclusive) (2^31 -1)
+                Integer is generally used as the default data type for integral values unless there is a concern about memory.
+                The default value is 0
+                Example: int a = 100000, int b = -200000
+
+            long
+                Long data type is a 64-bit signed two's complement integer
+                Minimum value is -9,223,372,036,854,775,808(-2^63)
+                Maximum value is 9,223,372,036,854,775,807 (inclusive)(2^63 -1)
+                This type is used when a wider range than int is needed
+                Default value is 0L
+                Example: long a = 100000L, long b = -200000L
+
+            float
+                Float data type is a single-precision 32-bit IEEE 754 floating point
+                Float is mainly used to save memory in large arrays of floating point numbers
+                Default value is 0.0f
+                Float data type is never used for precise values such as currency
+                Example: float f1 = 234.5f
+
+            double
+                double data type is a double-precision 64-bit IEEE 754 floating point
+                This data type is generally used as the default data type for decimal values, generally the default choice
+                Double data type should never be used for precise values such as currency
+                Default value is 0.0d
+                Example: double d1 = 123.4
+
+            boolean
+                boolean data type represents one bit of information
+                There are only two possible values: true and false
+                This data type is used for simple flags that track true/false conditions
+                Default value is false
+                Example: boolean one = true
+
+            char
+                char data type is a single 16-bit Unicode character
+                Minimum value is '\u0000' (or 0)
+                Maximum value is '\uffff' (or 65,535 inclusive)
+                Char data type is used to store any character
+                Example: char letterA = 'A'
+
+        Reference Data types: Class objects and array variables come under reference data types. Default value of any reference variable is null. A reference variable can be used to refer any object of the declared type or any compatible type.
+            Example: Animal animal = new Animal("giraffe");
+
+        Java Literals: Value provided to the primitive data types are called literals.
+            Eg: byte a = 68;
+                char a = 'A';
+                int decimal = 100;
+                int octal = 0144;
+                int hexa =  0x64;
+                char a = '\u0001';
+                String a = "\u0001";
+
+23. Escape sequences in Java:
+    \n - new line
+    \r - carriage return i.e. return to the beginning of the current line
+    \f - form feed i.e. advance downward to the next page
+    \b - backspace i.e. remove the previous element
+    \s - space
+    \t - tab
+    \" - double quote
+    \' - single quote
+    \\ - backlash i.e. if we want to use \ in the text then we use this
+
+    Eg: public class Escape {
+            public static void main(String[] args) {
+                System.out.println("Backspace      : " + "ABCDE\bFGHIJ");
+                System.out.println("Formfeed       : " + "ABCDE\fFGHIJ");
+                System.out.println("Linefeed       : " + "ABCDE\nFGHIJ");
+                System.out.println("Single Quote   : " + "ABCDE\'FGHIJ");
+                System.out.println("Double Quote   : " + "ABCDE\"FGHIJ");
+                System.out.println("Backslash      : " + "ABCDE\\FGHIJ");
+                System.out.println("Horizontal Tab : " + "ABCDE\tFGHIJ");
+                System.out.println("Carriage Return: " + "ABCDE\rFGHIJ");
+            }
+        }
+
+        //Output:
+        Backspace      : ABCDFGHIJ
+        Formfeed       : ABCDE
+                            FGHIJ
+        Linefeed       : ABCDE
+        FGHIJ
+        Single Quote   : ABCDE'FGHIJ
+        Double Quote   : ABCDE"FGHIJ
+        Backslash      : ABCDE\FGHIJ
+        Horizontal Tab : ABCDE	FGHIJ
+        FGHIJage Return: ABCDE
+
+24. Operators:
+        Arithmetic: +, -, /, %, *, ++, --
+        Relational: == != >= <= < >
+        Bitwise: &, |, ^(xor: provides 0 if both bits are same, provides 1 if both bits are different), ~(compliment: reverses the sign), <<(left shift: shifts the value by how much is written on the right operand), >>(right shift: shifts the value by how much is written on the right operand), >>>(zero fill right shift: the left operand is shifted by the number of right operand bits and shifted positions are filled with zero.)
+        Logical: &&, ||, !
+        Assignment operators: =, +=, -=, *=, /=, %=, &=, |=, <<=, >>=, ^=
+        Miscellaneous operators: ?:(conditional operator), instanceof(checks whether the value on the left is of the same type as value on the right)
+                Eg: public class Test {
+                        public static void main(String args[]) {
+
+                            String name = "James";
+
+                            // following will return true since name is type of String
+                            boolean result = name instanceof String;
+                            System.out.println( result );
+                        }
+                    } 
+                    //Output: true
+
+25. Precedance of operators: from top to bottom
+    Category	    Operator	                                            Associativity
+    Postfix	        expression++ expression--	                            Left to right
+    Unary	        ++expression –-expression +expression –expression ~ !	Right to left
+    Multiplicative	* / %	                                                Left to right
+    Additive	    + -	                                                    Left to right
+    Shift	        << >> >>>	                                            Left to right
+    Relational	    < > <= >= instanceof	                                Left to right
+    Equality	    == !=	                                                Left to right
+    Bitwise         AND	&                                               	Left to right
+    Bitwise         XOR	^	                                                Left to right
+    Bitwise         OR	|	                                                Left to right
+    Logical         AND	&&	                                                Left to right
+    Logical         OR	||	                                                Left to right
+    Conditional	    ?:	                                                    Right to left
+    Assignment	    = += -= *= /= %= ^= |= <<= >>= >>>=	                    Right to left
+
+26. Loops: while, for, do while.
+        Loop control statements: break, continue
+    Enahnced for loop: for(declaration: expression)
+        Eg: public class Test {
+                public static void main(String args[]) {
+                    int [] numbers = {10, 20, 30, 40, 50};
+                    for(int x : numbers ) {
+                        System.out.print( x );
+                        System.out.print(",");
+                    }
+                    System.out.print("\n");
+
+                    String [] names = {"James", "Larry", "Tom", "Lacy"};
+                    for( String name : names ) {
+                        System.out.print( name );
+                        System.out.print(",");
+                    }
+                }
+            }
+
+27. Decision making statements: if else, nested if, switch, conditional operator.
+
+28. Number class: this wrapper class contains the primitive data types int, float, long, double, short, byte.
+    Converting primitive data types into object is called boxing and converting it back to data type is called unboxing. 
+        Eg: public class Test {
+                public static void main(String args[]) {
+                    Integer x = 5; // boxes int to an Integer object
+                    x =  x + 10;   // unboxes the Integer to a int
+                    System.out.println(x); 
+                }
+            }
+
+    Methods of Number class:
+    i)  xxxValue(): here xxx can be byte, short, long, int, float, double. It converts the value to xxx.
+        Eg: Integer x = 5;
+            // Returns byte primitive data type
+            System.out.println( x.byteValue() );
+    
+    ii) compareTo(argument): compares the number to the arguments
+            If the Integer is equal to the argument then 0 is returned.
+            If the Integer is less than the argument then -1 is returned.
+            If the Integer is greater than the argument then 1 is returned.
+
+            Eg: Integer x = 5;
+                System.out.println(x.compareTo(3));     // -1
+                System.out.println(x.compareTo(5));     // 0
+                System.out.println(x.compareTo(8));     // 1
+
+    iii) equals(): compares the variable with the argument provided and returns true if they are equal and are of the same type.
+            Eg: Integer x = 5;
+                Integer y = 10;
+                Integer z =5;
+                Short a = 5;
+
+                System.out.println(x.equals(y));    // false  
+                System.out.println(x.equals(z));    // true
+                System.out.println(x.equals(a));    // false
+
+    iv) valueOf(): returns the object of the argument provided.
+            static Integer valueOf(int i)                   // i is integer
+            static Integer valueOf(String s)                // s is String
+            static Integer valueOf(String s, int radix)     //radix is the base in which the integer will be returned i.e. decimal, binary, octal, hexadecimal
+            Eg: Integer x =Integer.valueOf(9);
+                Double c = Double.valueOf(5);
+                Float a = Float.valueOf("80");               
+                Integer b = Integer.valueOf("444",16);
+
+                System.out.println(x);  // 9
+                System.out.println(c);  // 5.0
+                System.out.println(a);  // 80.0
+                System.out.println(b);  // 1092
+
+    v)  toString(): converts to String
+            Eg: Integer x = 5;
+                System.out.println(x.toString());           // 5
+                System.out.println(Integer.toString(12));   // 12
+
+    vi) parseInt(): parseXXX() where XXX can be integer, double etc.
+            static int parseInt(String s, int radix)    // radix is the base i.e. 10,2,8,16
+            Eg: int x =Integer.parseInt("9");
+                double c = Double.parseDouble("5");
+                int b = Integer.parseInt("444",16);
+
+                System.out.println(x);  // 9
+                System.out.println(c);  // 5.0
+                System.out.println(b);  // 1092
+
+    vii) abs(): returns the absolute value of the number provided
+            Eg: Integer a = -8;
+                double d = -100;
+                float f = -90;
+
+                System.out.println(Math.abs(a));    // 8
+                System.out.println(Math.abs(d));    // 100.0
+                System.out.println(Math.abs(f));    // 90.0
+
+    viii) ceil(): gives the greater integer
+    ix) floor(): gives the smaller integer
+        Eg: Double x = 100.675
+            Math.ceil(x)    // 101
+            Math.floor(x)   // 100
+
+    x) rint(): returns the integer that is closest to the provided argument. Returned as a double
+        Eg: Double x = 100.675
+            Math.rint(x)    // 101.0
+            Double y = 100.30
+            Math.rint(y)    // 100.0
+
+    xi) round(): returns the nearest integer
+        Eg: Double x = 100.675
+            Math.round(x)   // 101
+
+    xii) min(): returns the smallest of 2 arguments provided
+    xiii) max(): returns the larget of the 2 arguments provided.
+    
+    xiv) exp(): returns the exponential value of the provided argument
+
+    xv) log(): returns the log of the argument provided
+
+    xvi) pow(argument1, argument2): calculates the power s.t. argument1^argument2
+
+    xvii) sqrt(): calculates the square root of the argument provided
+
+    xviii) sin(): calculates the sin of the provided argument
+    xix) cos(): calculates the cos of the provided argument
+    xx) tan(): calculates the tan of the provided argument
+
+    xxi) asin(): calculates the arcsin
+    xxii) acos(): calculates the arccos
+    xxiii) atan(): calculates the arctan
+    xxiv) atan2(): The method converts rectangular coordinates (x, y) to polar coordinate (r, theta) and returns theta.
+            Eg: double x = 45.0;
+                double y = 30.0;
+                System.out.println( Math.atan2(x, y) ); //0.982793723247329
+
+    xxv) toDegrees(): converts the argument value to toDegrees
+    xxvi) toRadians(): converts the argument value to Radians
+    xxviii) random(): generates a random number b/w 0 & 1        // Math.random()
+
+29. Character class: char ch = 'a';
+
+    // Unicode for uppercase Greek omega character
+    char uniChar = '\u039A'; 
+
+    // an array of chars
+    char[] charArray ={ 'a', 'b', 'c', 'd', 'e' };
+
+    You can create a Character object with the Character constructor − Character ch = new Character('a');
+    The Java compiler will also create a Character object for you under some circumstances. For example, if you pass a primitive char into a method that expects an object, the compiler automatically converts the char to a Character for you. This feature is called autoboxing or unboxing, if the conversion goes the other way.
+    Example:
+    // Here following primitive char 'a'
+    // is boxed into the Character object ch
+    Character ch = 'a';
+
+    // Here primitive 'x' is boxed for method test,
+    // return is unboxed to char 'c'
+    char c = test('x');
+
+    If you want to put quotes within quotes, you must use the escape sequence, \", on the interior quotes − System.out.println("She said \"Hello!\" to me.");
+
+    Methods:
+        i) isLetter(): determines whether a character is a letter or not.
+            Eg: System.out.println(Character.isLetter('c'));    // true
+                System.out.println(Character.isLetter('5'));    // false
+
+        ii) isDigit(): determines whether a char value is digit
+            Eg: System.out.println(Character.isLetter('c'));    // false
+                System.out.println(Character.isLetter('5'));    // true
+
+        iii) isWhitespace(): determines whether char containes white space(space, newline or tab)
+                Eg: System.out.println(Character.isWhitespace('c'));    //false
+                    System.out.println(Character.isWhitespace(' '));    //true
+                    System.out.println(Character.isWhitespace('\n'));   //true
+                    System.out.println(Character.isWhitespace('\t'));   //true
+
+        iv) isUpperCase(): Determines whether the char is in uppercase
+            Eg: System.out.println(Character.isUpperCase('c'));     //false
+                System.out.println(Character.isUpperCase('C'));     //true
+                System.out.println(Character.isUpperCase('\n'));    //false
+                System.out.println(Character.isUpperCase('\t'));    //true
+
+        v) isLowerCase(): Determines whether the char is in lowercase
+            Eg: System.out.println(Character.isUpperCase('c'));     //true
+                System.out.println(Character.isUpperCase('C'));     //false
+                System.out.println(Character.isUpperCase('\n'));    //false
+                System.out.println(Character.isUpperCase('\t'));    //true
+
+        vi) toUpperCase(): converts lowercase to uppercase
+            Eg: System.out.println(Character.toUpperCase('c'));     //C
+                System.out.println(Character.toUpperCase('C'));     //C
+
+        vii) toLowerCase(): converts uppercase to lowercase
+            Eg: System.out.println(Character.toLowerCase('c'));     //c
+                System.out.println(Character.toLowerCase('C'));     //c
+
+        viii) toString(): returns a string object
+            Eg: System.out.println(Character.toString('c'));        //c
+                System.out.println(Character.toString('C'));        //C
+
+30. Strings class: Strings, which are widely used in Java programming, are a sequence of characters. In Java programming language, strings are treated as objects.
+        Creating strings: The most direct way to create a string is to write −
+            String greeting = "Hello world!";
+
+            You can also create String objects by using the new keyword and a constructor. The String class has 11 constructors that allow you to provide the initial value of the string using different sources, such as an array of characters.
+                Eg: char[] helloArray = { 'h', 'e', 'l', 'l', 'o', '.' };
+                    String helloString = new String(helloArray);  
+                    System.out.println( helloString );
+
+        Methods you use to obtain the information about the string are known as accessors.
+        Accessors or Methods:
+            i) length():
+                Eg: String palindrome = "Dot saw I was Tod";
+                int len = palindrome.length();
+                System.out.println( "String Length is : " + len );      // String Length is : 17
+
+            ii) concat(): used to concatenate 2 strings, 
+                    string1.concat(string2);
+                    Eg: "My name is ".concat("Zara");       // My name is Zara;
+
+                    Usually 2 strings are concatenated using + operators:
+                    Eg: "Hello," + " world" + "!"           //Hello, world!
+
+            iii) format(): instead of using printf for direct strings we can format the string to reuse it.
+                    Eg: //Instead of
+                        System.out.printf("The value of the float variable is " +
+                                        "%f, while the value of the integer " +
+                                        "variable is %d, and the string " +
+                                        "is %s", floatVar, intVar, stringVar);
+                        You can write −
+
+                        String fs;
+                        fs = String.format("The value of the float variable is " +
+                                        "%f, while the value of the integer " +
+                                        "variable is %d, and the string " +
+                                        "is %s", floatVar, intVar, stringVar);
+                        System.out.println(fs);
+
+            iv) charAt(index): returns the character at the specified index
+                    Eg: String s = "Strings are immutable";
+                        char result = s.charAt(8);
+                        System.out.println(result);     // a
+
+            v) compareTo(), compareToIgnoreCase(): compares the string
+                return value: The value 0 if the argument is a string lexicographically equal to this string; a value less than 0 if the argument is a string lexicographically greater than this string; and a value greater than 0 if the argument is a string lexicographically less than this string.
+                Eg: String str1 = "Strings are immutable";
+                    String str2 = new String("Strings are immutable");
+                    String str3 = new String("Integers are not immutable");
+                    
+                    int result = str1.compareTo( str2 );
+                    System.out.println(result);                 // 0
+                    
+                    result = str2.compareTo( str3 );
+                    System.out.println(result);                 // 10
+
+                    result = str3.compareTo( str1 );
+                    System.out.println(result);                 // -10
+
+            vi) contentEquals: string is compared to String buffer object
+                    Eg: String str1 = "Not immutable";
+                        String str2 = "Strings are immutable";
+                        StringBuffer str3 = new StringBuffer( "Not immutable");
+
+                        boolean  result = str1.contentEquals( str3 );
+                        System.out.println(result);                         // true
+                        
+                        result = str2.contentEquals( str3 );
+                        System.out.println(result);                         // false
+
+            vii) copyValueOf(char[] data): data is character array. This method copies the value of string array and convert it into String object.
+                    Eg: char[] Str1 = {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
+                        String Str2 = "";
+                        Str2 = Str2.copyValueOf( Str1 );
+                        System.out.println("Returned String: " + Str2);         // Returned String: hello world
+
+            viii) endsWith(): compares the string with the argument for the end.
+                    Eg: String Str = new String("This is really not immutable!!");
+                        boolean retVal;
+                        retVal = Str.endsWith( "immutable!!" );
+                        System.out.println("Returned Value = " + retVal );      // true
+
+                        retVal = Str.endsWith( "immu" );
+                        System.out.println("Returned Value = " + retVal );      // false
+
+            ix) equals(): compares the 2 strings
+                    Eg: String Str1 = new String("This is really not immutable!!");
+                        String Str3 = new String("This is really not immutable!!");
+                        boolean retVal;
+                        retVal = Str1.equals( Str3 );
+                        System.out.println("Returned Value = " + retVal );
+
+            x) equalsIgnoreCase(String anotherString): compares 2 strings
+                    Eg: String Str1 = new String("This is really not immutable!!");
+                        String Str2 = Str1;
+                        String Str3 = new String("This is really not immutable!!");
+                        String Str4 = new String("This IS REALLY NOT IMMUTABLE!!");
+                        boolean retVal;
+
+                        retVal = Str1.equals( Str2 );
+                        System.out.println("Returned Value = " + retVal );      // true
+
+                        retVal = Str1.equals( Str3 );
+                        System.out.println("Returned Value = " + retVal );      // true
+
+                        retVal = Str1.equalsIgnoreCase( Str4 );
+                        System.out.println("Returned Value = " + retVal );      // true
+
+            xi) getBytes(): This method encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.
+                Eg: String Str1 = new String("Welcome to Tutorialspoint.com");
+                    String Str2 = new String( Str1.getBytes( "UTF-8" ));
+                    System.out.println(Str2 );                                  //Welcome to Tutorialspoint.com
+                    Str2 = new String (Str1.getBytes( "ISO-8859-1" ));
+                    System.out.println(Str2);                                   //Welcome to Tutorialspoint.com
+
+            xii) getChars(int srcBegin, int srcEnd, char[] dst,  int dstBegin): copies from string to character array
+                    Eg: String Str1 = new String("Welcome to Tutorialspoint.com");
+                        char[] Str2 = new char[7];
+                        Str1.getChars(2, 9, Str2, 0);
+                        System.out.println(Str2 );              // lcome t
+                        
+            xiii) hashCode(): returns hashcode for the string
+                    Hashcode for a string is computed as: s[0]*31^(n - 1) + s[1]*31^(n - 2) + ... + s[n - 1]
+                    Eg: String Str = new String("Welcome to Tutorialspoint.com");
+                        System.out.println(Str.hashCode() );                            //1186874997
+
+            xiv) indexOf(): returns the index of the char argument
+                    String Str = new String("Welcome to Tutorialspoint.com");
+                    System.out.print("Found Index :" );
+                    System.out.println(Str.indexOf( 'o' ));                     //  4
+                
+            xv) indexOf(char ch, int fromIndex): returns the index of the char argument from the specified index
+                    String Str = new String("Welcome to Tutorialspoint.com");
+                    System.out.println(Str.indexOf( 'o', 5 ));                  // 9
+
+            xvii) indexOf(String s): returns the index of the string
+                    String Str = new String("Welcome to Tutorialspoint.com");
+                    String SubStr1 = new String("Tutorials");
+                    System.out.println("Found Index :" + Str.indexOf( SubStr1 ));       // 11
+
+            xviii) indexOf(String str, int fromIndex): returns the index of the string argument from the specified index
+                    String Str = new String("Welcome to Tutorialspoint.com");
+                    String SubStr1 = new String("Tutorials" );
+                    System.out.println( Str.indexOf( SubStr1, 15 ));            // -1
+
+            xix) intern(): returns canonical expression for the string
+
+            xx) lastIndexOf(): returns the last occurrence of the character
+                    String Str = new String("Welcome to Tutorialspoint.com");
+                    System.out.println(Str.lastIndexOf( 'o' ));                 // 27
+
+            xxi) lastIndexOf(int ch, int fromIndex): fromIndex is for the higher value. -1 is returned if char not found before fromIndex
+
+            xxii) lastIndexOf(String str)
+
+            xxiii) lastIndexOf(String str, int fromIndex)
+
+            xxiv)  matches(String regex):
+                    String Str = new String("Welcome to Tutorialspoint.com");
+
+                    System.out.println(Str.matches("(.*)Tutorials(.*)"));       // true
+                    System.out.println(Str.matches("Tutorials"));               // false
+                    System.out.println(Str.matches("Welcome(.*)"));             // true
+
+            xxv) regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len): 
+                    String Str1 = new String("Welcome to Tutorialspoint.com");
+                    String Str2 = new String("TUTORIALS");
+
+                    System.out.println(Str1.regionMatches(true, 11, Str2, 0, 9));       // true
+
+            xxvi) replace(char oldChar, char newChar):
+                    String Str = new String("Welcome to Tutorialspoint.com");
+
+                    System.out.println(Str.replace('o', 'T'));                          // WelcTme tT TutTrialspTint.cTm
+                    System.out.println(Str.replace('l', 'D'));                          // WeDcome to TutoriaDspoint.com
+
+            xxvii) replaceAll(String regex, String replacement):
+                    String Str = new String("Welcome to Tutorialspoint.com");
+
+                    System.out.println(Str.replaceAll("(.*)Tutorials(.*)", "AMROOD"));  // AMROOD
+
+            xxviii) public String replaceFirst(String regex, String replacement):
+                        String Str = new String("Welcome to Tutorialspoint.com");
+
+                        System.out.println(Str.replaceFirst("(.*)Tutorials(.*)", "AMROOD"));    // AMROOD
+                        System.out.println(Str.replaceFirst("Tutorials", "AMROOD"));            //Welcome to AMROODpoint.com
+
+            xxix) split(): returns the array
+                    Eg: String Str = new String("Welcome-to-Tutorialspoint.com");
+
+                        System.out.println(retval);                      //[Welcome, to, Tutorialspoint.com]
+
+            xxx) split(String regex, int limit)
+
+            xxxi) startsWith(String prefix): returns true false
+
+            xxxiii) startsWith(String prefix, int toffset)
+                        prefix − the prefix to be matched.
+                        toffset − where to begin looking in the string.
+            xxxiv) subSequence(int beginIndex, int endIndex): returns string within limits
+            xxxv) substring(int beginIndex)
+            xxxvi) substring(beginIndex, endIndex)
+            xxxvii) toCharArray()
+            xxxviii) toLowerCase()
+            xxxix) toString()
+            xxxx)  toUpperCase()
+            xxxxi) trim(): leading & trailing white spaces are eliminated
+            xxxxii) valueOf(datatype): returns string representation of datatype argument
+        
+31. Arrays: dataType[] arrayRefVar;   // preferred way.
+            or
+            dataType arrayRefVar[];  // works but not preferred way. Comes from C/C++
+
+        Declaring an array variable, creating an array, and assigning the reference of the array to the variable can be combined in one statement, as shown below −
+            dataType[] arrayRefVar = new dataType[arraySize];
+
+        Alternatively you can create arrays as follows −
+            dataType[] arrayRefVar = {value0, value1, ..., valuek};
+
+        Eg: double[] myList = {1.9, 2.9, 3.4, 3.5};
+
+            // Print all the array elements
+            for (int i = 0; i < myList.length; i++) {
+                System.out.println(myList[i] + " ");
+            }
+            
+            // Summing all elements
+            double total = 0;
+            for (int i = 0; i < myList.length; i++) {
+                total += myList[i];
+            }
+            System.out.println("Total is " + total);
+            
+            // Finding the largest element
+            double max = myList[0];
+            for (int i = 1; i < myList.length; i++) {
+                if (myList[i] > max) max = myList[i];
+            }
+            System.out.println("Max is " + max);
+
+            // Output:
+                1.9
+                2.9
+                3.4
+                3.5
+                Total is 11.7
+                Max is 3.5
+
+            // Print all the array elements
+            for (double element: myList) {
+                System.out.println(element);
+            }
+            // Output:
+                1.9
+                2.9
+                3.4
+                3.5
+
+        Passing array to methods: printArray(new int[]{3, 1, 2, 6, 4, 2});
+
+        Methods:
+            i) int binarySearch(Object[] a, Object key): returns the index of the search key. Array should be sorted prior using this
+            ii) boolean equals(long a1[], long a2[]): returns true if 2 arrays are equal.
+            iii) void fill(int[] a, int val): Assigns the specified int value to each element of the specified array of ints
+            iv) void sort(Object[] a): Sorts the specified array of objects into an ascending order, according to the natural ordering of its elements
+
+32. Date & time: new Date()
+    it has 2 constructors- Date()
+                                        Date(long millisec) - since midnight, January 1, 1970.
+    Methods:
+        i) boolean after(Date date): returns true if date2 is after date1
+            boolean after = date2.after(date1);
+
+        ii) boolean before(Date date): returns true if date2 is before date1
+            boolean before = date2.before(date1);
+
+        iii) Object clone(): clones the date string
+            Object date2 = date.clone();
+
+        iv) int compareTo(): compares the 2 dates. Returns -1 if date1 argument is less than the date2, 0 if equal, 1 if date1 argument is more than date2 argument.
+            int comparison = date2.compareTo(date1);
+
+        v) boolean equals(): returns true if the 2 dates are equal.
+        
+        vi) long getTime()
+
+        vii) int hashCode()
+
+        ix) void setTime(long time)
+
+        x) String toString()
+
+    Date comparisons: 
+        i) use getTime() to convert both objects in milliseconds and compare them
+        ii) use after() or before()
+        iii) use compareTo
+
+    SimpleDateFormat: a concrete class to display date as per users choice
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+        System.out.println(ft.format(dNow));                                                //Sun 2004.07.18 at 04:14:09 PM PDT
+
+        Format codes:
+        G	    Era designator	            AD
+        y	    Year in four digits	        2001
+        M	    Month in year	            July or 07
+        d	    Day in month	            10
+        h	    Hour in A.M./P.M. (1~12)	12
+        H	    Hour in day (0~23)	        22
+        m	    Minute in hour	            30
+        s	    Second in minute	        55
+        S	    Millisecond	                234
+        E	    Day in week	                Tuesday
+        D	    Day in year	                360
+        F	    Day of week in month	    2 (second Wed. in July)
+        w	    Week in year	            40
+        W	    Week in month	            1
+        a	    A.M./P.M. marker	        PM
+        k	    Hour in day (1~24)	        24
+        K	    Hour in A.M./P.M. (0~11)	10
+        z	    Time zone	                Eastern Standard Time
+        '	    Escape for text	            Delimiter   
+        "	    Single quote	            `
+     
+    Date formatting using printf(): <t means copy from the preceding tag. Also it starts from % and ends with $
+        Eg1: Date date = new Date();
+            String str = String.format("%tc", date );
+            System.out.printf(str)                                              //Sat Dec 15 16:37:57 MST 2012
+
+        Eg2: System.out.printf("%1$s %2$tB %2$td, %2$tY", "Due date:", date);    // Due date: February 09, 2004
+
+        Eg3: System.out.printf("%s %tB %<te, %<tY", "Due date:", date);         // Due date: February 09, 2004
+
+        Date & time conversion codes:
+        c	Complete date and time	                                    Mon May 04 09:51:52 CDT 2009
+        F	ISO 8601 date	                                            2004-02-09
+        D	U.S. formatted date (month/day/year)	                    02/09/2004
+        T	24-hour time	                                            18:05:19
+        r	12-hour time	                                            06:05:19 pm
+        R	24-hour time, no seconds	                                18:05
+        Y	Four-digit year (with leading zeroes)	                    2004
+        y	Last two digits of the year (with leading zeroes)	        04
+        C	First two digits of the year (with leading zeroes)	        20
+        B	Full month name	                                            February
+        b	Abbreviated month name	                                    Feb
+        m	Two-digit month (with leading zeroes)	                    02
+        d	Two-digit day (with leading zeroes)	                        03
+        e	Two-digit day (without leading zeroes)	                    9   
+        A	Full weekday name	                                        Monday
+        a	Abbreviated weekday name	                                Mon
+        j	Three-digit day of year (with leading zeroes)	            069
+        H	Two-digit hour (with leading zeroes),   between 00 and 23	18
+        k	Two-digit hour (without leading zeroes), between 0 and 23	18
+        I	Two-digit hour (with leading zeroes), between 01 and 12	    06
+        l	Two-digit hour (without leading zeroes), between 1 and 12	6
+        M	Two-digit minutes (with leading zeroes)	                    05
+        S	Two-digit seconds (with leading zeroes)	                    19
+        L	Three-digit milliseconds (with leading zeroes)	            047
+        N	Nine-digit nanoseconds (with leading zeroes)	            047000000
+        P	Uppercase morning or afternoon marker	                    PM
+        p	Lowercase morning or afternoon marker	                    pm
+        z	RFC 822 numeric offset from GMT                             -0800
+        Z	Time zone	                                                PST
+        s	Seconds since 1970-01-01 00:00:00 GMT	                    1078884319
+        Q	Milliseconds since 1970-01-01 00:00:00 GMT	                1078884319047
+
+    Parsing strings into Dates: SimpleDateFormat has some methods to convert string into date object. Eg: parse()
+        Eg: SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd"); 
+            String input = args.length == 0 ? "1818-11-11" : args[0]; 
+            System.out.print(input + " Parses as "); 
+            Date t;
+            t = ft.parse(input); 
+            System.out.println(t)
+
+            //Output: 1818-11-11 Parses as Wed Nov 11 00:00:00 EST 1818
+
+    Sleeping for a while: sleeps for some time. Like settimeout
+        Eg: System.out.println(new Date( ) + "\n"); 
+            Thread.sleep(5*60*10);                          // Sleeps for 3 seconds
+            System.out.println(new Date( ) + "\n");
+
+            //Output:
+            Sun May 03 18:04:41 GMT 2009
+            Sun May 03 18:04:51 GMT 2009
+
+    Measuring elapsed time:
+        Eg: long start = System.currentTimeMillis( );
+            System.out.println(new Date( ) + "\n");
+            
+            Thread.sleep(5*60*10);
+            System.out.println(new Date( ) + "\n");
+            
+            long end = System.currentTimeMillis( );
+            long diff = end - start;
+            System.out.println("Difference is : " + diff);
+
+            //Output:
+            Sun May 03 18:16:51 GMT 2009
+            Sun May 03 18:16:57 GMT 2009
+            Difference is : 5993
+
+    GregorianCalendarClass: Gregorian calendar is used by ,most of the world. The getInstance( ) method of Calendar returns a GregorianCalendar initialized with the current date and time in the default locale and time zone. GregorianCalendar defines two fields: AD and BC. These represent the two eras defined by the Gregorian calendar.
+        Constructors:   GregorianCalendar()
+                        GregorianCalendar(int year, int month, int date)
+                        GregorianCalendar(int year, int month, int date, int hour, int minute, int second)
+                        GregorianCalendar(Locale aLocale)
+                        GregorianCalendar(TimeZone zone)
+                        GregorianCalendar(TimeZone zone, Locale aLocale)
+
+        Methods:
+            i) void add(int field, int amount): Adds the specified (signed) amount of time to the given time field, based on the calendar's rules.
+
+            ii) protected void computeFields(): Converts UTC as milliseconds to time field values.
+
+            iii) protected void computeTime(): Overrides Calendar Converts time field values to UTC as milliseconds.
+
+            iv) boolean equals(Object obj): Compares this GregorianCalendar to an object reference.
+
+            v) int get(int field): Gets the value for a given time field.
+
+            vi)	int getActualMaximum(int field): Returns the maximum value that this field could have, given the current date.
+
+            vii) int getActualMinimum(int field): Returns the minimum value that this field could have, given the current date.
+
+            viii) int getGreatestMinimum(int field): Returns highest minimum value for the given field if varies.
+
+            ix) Date getGregorianChange(): Gets the Gregorian Calendar change date.
+
+            x) int getLeastMaximum(int field): Returns lowest maximum value for the given field if varies.
+
+            xi) int getMaximum(int field): Returns maximum value for the given field.
+
+            xii) Date getTime(): Gets this Calendar's current time.
+
+            xiii) long getTimeInMillis(): Gets this Calendar's current time as a long.
+
+            xiv) TimeZone getTimeZone(): Gets the time zone.
+
+            xv) int getMinimum(int field): Returns minimum value for the given field.
+
+            xvi) int hashCode(): Overrides hashCode.
+
+            xvii) boolean isLeapYear(int year): Determines if the given year is a leap year.
+
+            xviii) void roll(int field, boolean up): Adds or subtracts (up/down) a single unit of time on the given time field without changing larger fields.
+
+            xix) void set(int field, int value): Sets the time field with the given value.
+
+            xx) void set(int year, int month, int date): Sets the values for the fields year, month, and date.
+
+            xxi) void set(int year, int month, int date, int hour, int minute): Sets the values for the fields year, month, date, hour, and minute.
+
+            xxii) void set(int year, int month, int date, int hour, int minute, int second): Sets the values for the fields year, month, date, hour, minute, and second.
+
+            xxiii) void setGregorianChange(Date date): Sets the GregorianCalendar change date.
+
+            xxiv) void setTime(Date date): Sets this Calendar's current time with the given Date.
+
+            xxv) void setTimeInMillis(long millis): Sets this Calendar's current time from the given long value.
+
+            xxvi) void setTimeZone(TimeZone value): Sets the time zone with the given time zone value.
+
+            xxvii) String toString(): Returns a string representation of this calendar.
+
+            Eg: String months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", 
+                    "Oct", "Nov", "Dec"};
+                
+                int year;
+                // Create a Gregorian calendar initialized
+                // with the current date and time in the
+                // default locale and timezone.
+                
+                GregorianCalendar gcalendar = new GregorianCalendar();
+                
+                // Display current time and date information.
+                System.out.print("Date: ");
+                System.out.print(months[gcalendar.get(Calendar.MONTH)]);
+                System.out.print(" " + gcalendar.get(Calendar.DATE) + " ");
+                System.out.println(year = gcalendar.get(Calendar.YEAR));
+                System.out.print("Time: ");
+                System.out.print(gcalendar.get(Calendar.HOUR) + ":");
+                System.out.print(gcalendar.get(Calendar.MINUTE) + ":");
+                System.out.println(gcalendar.get(Calendar.SECOND));
+
+                // Test if the current year is a leap year
+                if(gcalendar.isLeapYear(year)) {
+                    System.out.println("The current year is a leap year");
+                }else {
+                    System.out.println("The current year is not a leap year");
+                }
+
+                //Output
+                Date: Apr 22 2009
+                Time: 11:25:27
+                The current year is not a leap year
+
+33. Regular Expressions:
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------
+1. How to make a client and server in Java:
+
+   // server.java
+    import java.net.*
+
+    ServerSocket server = new ServerSocket(3000);
+    Socket s = server.accept();
+
+    System.out.println("Connected");
+
+
+    //client.java
+        import java.net.*;
+
+        Socket s = new Socket("127.0.0.1", 3000);
+
+2. How to make a normal program in Java:
+
+    // client.java
+        import java.util.*
+
+        int number, temp;
+        Scanner sc = new Scanner(System.in);
+        Socket s = new Socket("127.0.0.1", 3000);
+        Scanner sc1 = new Scanner(s.getInputStream());
+        System.out.println("Enter a number:");
+        number = sc.nextInt();
+        PrintStream p =new PrintStream(s.getOutputStream());
+        p.println(number);
+        temp = sc1.nextInt();
+        System.out.println(temp);
+
+    //server.java
+        

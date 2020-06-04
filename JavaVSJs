@@ -1,0 +1,10 @@
+Difference between Java & Javascript:
+
+1. Java is a strongly typed language whereas Javascript is lighted weighted language with easy syntax rules.
+2. Java is object oriented programming language whereas Javascript is a object based programming.
+3. Java can run on any virtual machine and web browser whereas Javascript run only on browser.
+4. Objects of Java are class based even we cant make any program in Java without creating a class whereas Javascript objects are prototype based.
+5. Java file is compiled and converted to source code to run whereas Javascript is compiled at run time by browsers engine.
+6. Java is a standalone language whereas Javascript is a language which is integrated with its HTML elements.
+7. Java uses more memory and Javascript uses less memory.
+8. Java has a thread based approach towards concurrency whereas Javascript has event based approach towards concurrency.
